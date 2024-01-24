@@ -1,11 +1,14 @@
 import React from "react";
 import "./App.css";
-import { SignIn } from "./pages/signin";
+import { AuthProvide } from "./helpers/authProvide";
+import { MainApp } from "./pages/main";
 
 function App() {
   return (
     <div className="App">
-      <SignIn />
+      <AuthProvide>
+        <MainApp />
+      </AuthProvide>
     </div>
   );
 }
