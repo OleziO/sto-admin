@@ -26,25 +26,34 @@ export const MainTable = () => {
 
   return (
     <div className={cn("container")}>
-      <table className={cn("table table-light table-hover", styles.mainTable)}>
-        <thead>
+      <table
+        className={cn("table table-hover table-bordered", styles.mainTable)}
+      >
+        <thead className="thead-dark">
           <tr>
-            <th>Ім'я</th>
-            <th>Номер</th>
-            <th>Машини</th>
+            <th scope="col">#</th>
+            <th scope="col">Ім'я</th>
+            <th scope="col">Номер</th>
+            <th scope="col">Машини</th>
           </tr>
         </thead>
 
         <tbody>
-          {customers?.map((item) => {
+          {customers?.map((item, idx) => {
             const customerCars = cars
               ?.filter((car) => car.owner === item.id)
-              .map((car) => `${car.name} ${car.model}`)
-              .join(", ");
+              .map((car) => (
+                <p>
+                  {car.name} {car.model}
+                </p>
+              ));
             return (
               <tr key={item.id}>
+                <th scope="row">{idx + 1}</th>
                 <td>{item.name}</td>
-                <td>{item.phone}</td>
+                <td>
+                  <a href={`tel:${item.phone}`}>{item.phone} </a>
+                </td>
                 <td>{customerCars}</td>
               </tr>
             );
