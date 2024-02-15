@@ -31,7 +31,7 @@ export const SignIn = () => {
         </label>
         <label className={styles.signInLabel}>
           <input
-            type="passwords"
+            type="password"
             className={cn("form-control", styles.passwordInput)}
             placeholder="password"
             value={user.password}

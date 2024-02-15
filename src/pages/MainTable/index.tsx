@@ -1,5 +1,6 @@
 import cn from "classnames";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { supabase } from "../../api";
 import styles from "./styles.module.scss";
 
@@ -49,12 +50,14 @@ export const MainTable = () => {
               ));
             return (
               <tr key={item.id}>
-                <th scope="row">{idx + 1}</th>
-                <td>{item.name}</td>
-                <td>
-                  <a href={`tel:${item.phone}`}>{item.phone} </a>
-                </td>
-                <td>{customerCars}</td>
+                <Link to={`customers/${item.id}`}>
+                  <th scope="row">{idx + 1}</th>
+                  <td>{item.name}</td>
+                  <td>
+                    <a href={`tel:${item.phone}`}>{item.phone} </a>
+                  </td>
+                  <td>{customerCars}</td>
+                </Link>
               </tr>
             );
           })}

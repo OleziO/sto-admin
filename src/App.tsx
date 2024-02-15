@@ -1,13 +1,16 @@
 import React from "react";
-import "./App.css";
+import { RouterProvider } from "react-router-dom";
+
 import { AuthProvide } from "./helpers/authProvide";
 import { MainApp } from "./pages/main";
+import "./App.css";
+import router from "./pages/router";
 
 function App() {
   return (
     <div className="App">
       <AuthProvide>
-        <MainApp />
+        <RouterProvider router={router} />
       </AuthProvide>
     </div>
   );
